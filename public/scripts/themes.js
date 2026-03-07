@@ -1,16 +1,12 @@
-const theme = (() => {
-  if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-    return localStorage.getItem('theme');
+// Gestion du thème sans code inline
+(function() {
+  const theme = localStorage.getItem('theme') || 
+                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  
+  if (theme === 'dark') {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
   }
-  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    return 'dark';
-  }
-  return 'light';
+  localStorage.setItem('theme', theme);
 })();
-
-if (theme === 'light') {
-  document.documentElement.classList.remove('dark');
-} else {
-  document.documentElement.classList.add('dark');
-}
-window.localStorage.setItem('theme', theme);
