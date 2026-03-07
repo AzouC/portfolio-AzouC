@@ -13,8 +13,11 @@ import '../styles/print.css';
     <meta name="description" content="Portfolio de Malo, étudiant en Cybersécurité, Réseaux et PenTest. Découvrez mon environnement technique et mes projets." />
     
     <ViewTransitions />
+  </head>
+  <body>
+    <slot />
 
-    <script is:inline>
+    <script>
       const theme = (() => {
         if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
           return localStorage.getItem('theme');
@@ -31,12 +34,7 @@ import '../styles/print.css';
         document.documentElement.classList.add('dark');
       }
       window.localStorage.setItem('theme', theme);
-    </script>
-  </head>
-  <body>
-    <slot />
 
-    <script>
       console.log('%c👋 Bonjour ! Vous regardez sous le capot ?', 'color: #2563eb; font-size: 18px; font-weight: bold;');
       console.log('Je suis étudiant et je cherche de nouvelles opportunités en alternance. Mon code est propre, tout comme ce portfolio. Parlons-en !');
     </script>
