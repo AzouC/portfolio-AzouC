@@ -1,8 +1,6 @@
 ---
 import '../styles/global.css';
 import '../styles/print.css';
-// Note : On ne met plus de composants ici pour ne pas risquer d'erreurs d'import, 
-// mais on assure que le SLOT est bien entouré.
 ---
 
 <!DOCTYPE html>
@@ -10,14 +8,15 @@ import '../styles/print.css';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio | Malo - Cybersécurité & Réseaux</title>
-    <meta name="description" content="Portfolio de Malo, étudiant en Cybersécurité, Réseaux et PenTest." />
+    <title>Portfolio | Malo - Cybersécurité</title>
     
     <script src="/scripts/theme.js" is:inline></script>
   </head>
-  <body class="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
-    <main class="flex-grow container mx-auto px-4 py-8">
-      <slot />
-    </main>
+  <body class="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100">
+    <div class="relative flex min-h-screen flex-col">
+      <main class="flex-auto">
+        <slot />
+      </main>
+    </div>
   </body>
 </html>
