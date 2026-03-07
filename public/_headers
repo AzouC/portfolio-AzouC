@@ -1,7 +1,50 @@
+# public/_headers — Cloudflare Pages
+# ─────────────────────────────────────────────────────────────────────────────
+# Cible : Score A+ sur Mozilla Observatory
+# Stratégie CSP :
+#   • script-src → 'self' uniquement + hash SHA-256 du seul script inline
+#     (anti-FOUC thème). Zéro 'unsafe-inline', zéro 'unsafe-eval'.
+#   • style-src  → 'self' + 'unsafe-inline' (requis par Tailwind JIT / CSS-in-JS
+#     injecté par Astro ; toléré par Observatory pour le score A+).
+#   • Toutes les autres directives sont restrictives.
+#
+# ⚠️  Si vous modifiez le script inline dans MainLayout.astro, recalculez le hash :
+#     printf '%s' '<contenu_exact>' | openssl dgst -sha256 -binary | base64
+#     puis remplacez la valeur sha256-... dans script-src ci-dessous.
+# ─────────────────────────────────────────────────────────────────────────────
+
 /*
+  # Sécurité transport
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+
+  # Anti-clickjacking (redondant avec frame-ancestors CSP, mais gardé pour
+  # les vieux navigateurs qui ne supportent pas CSP)
   X-Frame-Options: DENY
+
+  # Empêche le MIME-sniffing
   X-Content-Type-Options: nosniff
+
+  # Politique de referrer — on envoie uniquement l'origine sur les requêtes
+  # cross-origin (pas de path/query leakés)
   Referrer-Policy: strict-origin-when-cross-origin
-  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  Permissions-Policy: camera=(), microphone=(), geolocation=()
-  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;
+
+  # Permissions API — surface d'attaque réduite au minimum
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+
+  # ── Content Security Policy ───────────────────────────────────────────────
+  #
+  # default-src  : fallback restrictif
+  # script-src   : scripts locaux ('self') + hash du script anti-FOUC inline
+  #                Les bundles Astro sont dans /_astro/ → couverts par 'self'
+  # style-src    : 'unsafe-inline' requis pour Tailwind (injections de classes
+  #                utilitaires dans <style> par le bundler Astro)
+  # img-src      : self + data: (base64 badges) + https: (images externes si besoin)
+  # font-src     : self + data: (polices embarquées)
+  # connect-src  : self uniquement (pas d'API externe)
+  # object-src   : none (Flash & co interdits)
+  # base-uri     : none (empêche les attaques via injection de <base>)
+  # form-action  : self (formulaires uniquement vers le même domaine)
+  # frame-ancestors: none (remplace X-Frame-Options pour les navigateurs modernes)
+  # upgrade-insecure-requests : force HTTPS sur les sous-ressources HTTP
+  #
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-ABXcc86eRLjpNmOa/Gzdk3rjEsB7z/Rj+bnOFEEIXOA='; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;

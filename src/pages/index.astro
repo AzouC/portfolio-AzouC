@@ -1,7 +1,6 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 
-// Vos données structurées
 const skillsOS = ["Kali Linux", "Debian", "Ubuntu", "Fedora", "Arch", "Windows", "macOS"];
 const skillsCyber = ["Nmap", "Wireshark", "Burp Suite", "John The Ripper", "Hydra", "Sherlock", "Maltego", "Tcpdump", "Metasploit", "Hping3", "Scapy", "Aircrack-ng", "Cisco Packet Tracer"];
 const skillsDev = ["HTML / CSS", "C / C++", "Python", "Bash"];
@@ -126,6 +125,13 @@ const skillsDev = ["HTML / CSS", "C / C++", "Python", "Bash"];
   <footer class="footer reveal">
     <p>© 2026 Malo - Fait avec rigueur. <br/> <a href="mailto:lomaneveu@laposte.net">Me contacter par email</a></p>
   </footer>
+
+  <!--
+    Script externalisé — couvert par 'self' dans script-src.
+    defer : s'exécute après le parsing HTML, le DOM est déjà disponible.
+    Aucun hash requis car c'est un fichier .js servi depuis la même origine.
+  -->
+  <script src="/scripts/theme-toggle.js" defer is:inline={false}></script>
 </MainLayout>
 
 <style>
@@ -162,14 +168,11 @@ const skillsDev = ["HTML / CSS", "C / C++", "Python", "Bash"];
   .secondary-button { background-color: transparent; border: 2px solid var(--accent-color); color: var(--text-color); }
   .cta-button:hover, .secondary-button:hover { transform: translateY(-2px); }
 
-  /* FIX CONTRASTE MODE CLAIR : Des bordures plus marquées et une légère ombre */
   .bio-card, .badge-card, .project-card, .social-badge {
     background: var(--card-bg);
-    border: 1px solid #cbd5e1; /* Bordure gris clair bien visible en mode clair */
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.05); /* Ombre douce */
+    border: 1px solid #cbd5e1;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.05);
   }
-
-  /* Mode Sombre : on remet des bordures discrètes */
   :root.dark .bio-card, :root.dark .badge-card, :root.dark .project-card, :root.dark .social-badge {
     border: 1px solid rgba(255,255,255,0.08);
     box-shadow: none;
@@ -196,15 +199,13 @@ const skillsDev = ["HTML / CSS", "C / C++", "Python", "Bash"];
   .skills-grid { display: grid; gap: 2.5rem; }
   .skill-category h3 { margin-bottom: 1rem; font-size: 1.2rem; display: inline-block; padding-bottom: 0.3rem; border-bottom: 2px solid var(--accent-color); }
   .tags { list-style: none; display: flex; flex-wrap: wrap; gap: 0.8rem; }
-  
-  /* FIX CONTRASTE TAGS (Outils) MODE CLAIR */
   .tags li { 
     background: var(--card-bg); 
     padding: 0.5rem 1rem; 
     border-radius: 6px; 
     font-size: 0.9rem; 
     font-weight: 500; 
-    border: 1px solid #cbd5e1; /* Bordure visible */
+    border: 1px solid #cbd5e1;
     box-shadow: 0 1px 2px rgba(0,0,0,0.05);
   }
   :root.dark .tags li { 
@@ -225,25 +226,8 @@ const skillsDev = ["HTML / CSS", "C / C++", "Python", "Bash"];
 
   .footer { text-align: center; padding: 3rem 0; opacity: 0.7; }
   .footer a { color: var(--accent-color); text-decoration: none; font-weight: bold; }
+
+  /* Animations reveal */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
 </style>
-
-<script>
-  // Logique du bouton Dark/Light Mode
-  const handleToggleClick = () => {
-    const element = document.documentElement;
-    element.classList.toggle("dark");
-    localStorage.setItem("theme", element.classList.contains("dark") ? "dark" : "light");
-  }
-  document.getElementById("theme-toggle")?.addEventListener("click", handleToggleClick);
-
-  // Observer pour les animations au défilement
-  const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-  }, observerOptions);
-  
-  // Appliquer l'observer une fois la page chargée
-  document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-  });
-</script>
