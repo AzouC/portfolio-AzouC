@@ -1,12 +1,10 @@
-// Gestion du thème sans code inline
 (function() {
-  const theme = localStorage.getItem('theme') || 
-                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  const savedTheme = localStorage.getItem('theme');
+  const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   
-  if (theme === 'dark') {
+  if (savedTheme === 'dark' || (!savedTheme && systemDark)) {
     document.documentElement.classList.add('dark');
   } else {
     document.documentElement.classList.remove('dark');
   }
-  localStorage.setItem('theme', theme);
 })();
