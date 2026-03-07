@@ -1,0 +1,47 @@
+/* src/styles/global.css */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Pour que le menu fixe ne cache pas les titres */
+}
+
+:root {
+  --bg-color: #f8fafc;
+  --text-color: #0f172a;
+  --accent-color: #2563eb;
+  --card-bg: #ffffff;
+  --nav-bg: rgba(248, 250, 252, 0.8);
+}
+
+:root.dark {
+  --bg-color: #0f172a;
+  --text-color: #f8fafc;
+  --accent-color: #60a5fa;
+  --card-bg: #1e293b;
+  --nav-bg: rgba(15, 23, 42, 0.8);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  line-height: 1.6;
+}
+
+/* Animations au scroll (Intersection Observer) */  
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1), transform 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

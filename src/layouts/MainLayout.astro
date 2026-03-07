@@ -1,0 +1,44 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import '../styles/global.css';
+import '../styles/print.css';
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mon Portfolio | Développeur Web</title>
+    <meta name="description" content="Portfolio d'un développeur web passionné." />
+    
+    <ViewTransitions />
+
+    <script is:inline>
+      const theme = (() => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          return 'dark';
+        }
+        return 'light';
+      })();
+
+      if (theme === 'light') {
+        document.documentElement.classList.remove('dark');
+      } else {
+        document.documentElement.classList.add('dark');
+      }
+      window.localStorage.setItem('theme', theme);
+    </script>
+  </head>
+  <body>
+    <slot />
+
+    <script>
+      console.log('%c👋 Bonjour ! Content que vous aimez mon portfolio :)  !', 'color: #2563eb; font-size: 18px; font-weight: bold;');
+      console.log('Je suis étudiant et je cherche de nouvelles opportunités en alternance. Mon code est propre, tout comme ce portfolio. Parlons-en !');
+    </script>
+  </body>
+</html>

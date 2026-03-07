@@ -1,0 +1,70 @@
+@media print {
+  * {
+    color: #000 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  .navbar,
+  .hero-actions,
+  .footer,
+  #theme-toggle {
+    display: none !important;
+  }
+
+  body {
+    font-size: 11pt;
+    line-height: 1.5;
+    padding: 0;
+    margin: 0;
+  }
+
+  main {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .section, .hero {
+    padding: 1cm 0 !important;
+    min-height: auto !important;
+    border: none !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  h1, h2, h3 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  .bio-card, 
+  .badge-card, 
+  .project-card, 
+  .skill-category {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    border: 1px solid #000 !important;
+    margin-bottom: 1rem;
+  }
+
+  .badges-grid {
+    display: flex !important;
+    gap: 1rem;
+  }
+  
+  .badge-card {
+    flex: 1;
+    padding: 1rem !important;
+  }
+  
+  .badge-card img {
+    width: 60px !important;
+    height: 60px !important;
+  }
+}
