@@ -13,13 +13,6 @@ const { title = "Portfolio | Malo - Cybersécurité" } = Astro.props;
     <title>{title}</title>
 
     <!--
-      ANTI-FOUC : Ce script DOIT rester inline pour s'exécuter avant le premier
-      rendu et éviter le flash blanc→noir en mode sombre.
-
-      ⚠️  IMPORTANT CSP : Le hash SHA-256 de CE script exact est déclaré dans _headers.
-          Si vous modifiez la moindre virgule ici, vous DEVEZ recalculer le hash avec :
-          printf '%s' '<contenu>' | openssl dgst -sha256 -binary | base64
-
       Hash actuel : sha256-ABXcc86eRLjpNmOa/Gzdk3rjEsB7z/Rj+bnOFEEIXOA=
     -->
     <script is:inline>(function(){var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark');}})();</script>
