@@ -22,145 +22,295 @@ const skillsDev = ["HTML / CSS", "C / C++", "Python", "Bash"];
     </nav>
   </header>
 
+  <section id="accueil" class="hero relative overflow-hidden">
+    <div class="video-wrapper">
+      <video autoplay loop muted playsinline class="bg-video">
+        <source src="/videos/cyber-bg.mp4" type="video/mp4" />
+      </video>
+      <div class="video-overlay"></div>
+    </div>
+
+    <div class="hero-content relative z-10 w-full">
+      <h1>Étudiant en <span class="highlight">Cybersécurité & Réseaux</span></h1>
+      
+      <p class="hero-subtitle typewriter-container">
+        <span id="typewriter"></span>
+      </p>
+      
+      <div class="hero-actions">
+        <a href="#projets" class="cta-button">Voir mes projets</a>
+        <a href="#profil" class="secondary-button">Découvrir mon profil</a>
+      </div>
+
+      <div class="social-links">
+        <a href="https://github.com/AzouC" target="_blank" rel="noopener noreferrer" class="social-badge">
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+          GitHub
+        </a>
+        <a href="https://www.root-me.org/AzouC" target="_blank" rel="noopener noreferrer" class="social-badge root-me">
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>
+          Root-Me
+        </a>
+        <a href="https://discordapp.com/users/a_zouzou" target="_blank" rel="noopener noreferrer" class="social-badge discord" title="Pseudo: [ウルトラ]azAZou25">
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6h0a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3h-1.5l-2.5 3v-3H9a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3h9z"/><path d="M10 11v.01"/><path d="M14 11v.01"/></svg>
+          Discord
+        </a>
+        <div class="social-badge disabled" title="Compte en cours de création">
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn (À venir)
+        </div>
+      </div>
+    </div>
+  </section>
+
   <main>
-    <section id="accueil" class="hero relative overflow-hidden">
-      <div class="video-wrapper">
-        <video autoplay loop muted playsinline class="bg-video">
-          <source src="/videos/cyber-bg.mp4" type="video/mp4" />
-        </video>
-        <div class="video-overlay"></div>
-      </div>
-
-      <div class="hero-content relative z-20">
-        <h1>Malo <br/> <span class="highlight typewriter" id="typewriter"></span></h1>
-        <p class="hero-subtitle">Étudiant en BTS CIEL - Spécialisation Cybersécurité & Réseaux.</p>
-        
-        <div class="hero-actions">
-          <a href="#projets" class="cta-button">Découvrir mes projets</a>
-          <a href="#profil" class="secondary-button">Mon Profil</a>
-        </div>
-
-        <div class="social-links">
-          <a href="https://github.com/AzouC" target="_blank" rel="noopener noreferrer" class="social-badge">GitHub</a>
-          <a href="https://www.root-me.org/AzouC" target="_blank" rel="noopener noreferrer" class="social-badge root-me">Root-Me</a>
-          <a href="https://discordapp.com/users/a_zouzou" target="_blank" rel="noopener noreferrer" class="social-badge discord">Discord</a>
-        </div>
-      </div>
-    </section>
-
     <section id="profil" class="section reveal">
       <h2>À propos de <span class="highlight">moi</span></h2>
       <p class="subtitle">18 ans • Français • Bassin Rennais</p>
+      
       <div class="bio-card">
-        <p>Étudiant en 1ère année de <strong>BTS CIEL</strong>, je suis passionné par le Penetration Testing. Curieux et assidu, je cherche une <strong>alternance</strong> pour mettre mes compétences à l'épreuve.</p>
+        <p>Étudiant en 1ère année de <strong>BTS CIEL (Informatique et Réseaux)</strong>, je suis passionné par la cybersécurité et le Penetration Testing. Curieux, ponctuel et assidu, je suis actuellement à la recherche d'une <strong>alternance</strong> pour mettre mes compétences à l'épreuve.</p>
+        <p>En dehors du terminal, je suis un grand amateur de cinéma, de sport, et j'explore activement les possibilités de l'Intelligence Artificielle (génération audio/vidéo, tracking).</p>
+      </div>
+
+      <h3 class="certif-title">Mes Certifications Cisco</h3>
+      <div class="badges-grid">
+        <div class="badge-card">
+          <img src="/images/badge-english.png" alt="Badge English for IT 2" loading="lazy" />
+          <p>English for IT 2</p>
+        </div>
+        <div class="badge-card">
+          <img src="/images/badge-network.png" alt="Badge Networking Basics" loading="lazy" />
+          <p>Networking Basics</p>
+        </div>
+        <div class="badge-card">
+          <img src="/images/badge-cyber.png" alt="Badge Introduction to Cybersecurity" loading="lazy" />
+          <p>Intro to Cybersecurity</p>
+        </div>
       </div>
     </section>
-    
-    </main>
 
-  <footer class="footer">
-    <p>© 2026 Malo - Fait avec rigueur.</p>
+    <section id="competences" class="section reveal">
+      <h2>Stack & Environnement <span class="highlight">Technique</span></h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>Systèmes d'Exploitation (Maîtrise)</h3>
+          <ul class="tags">{skillsOS.map(skill => <li>{skill}</li>)}</ul>
+        </div>
+        <div class="skill-category">
+          <h3>Outils Cyber & Réseaux (Maîtrise)</h3>
+          <ul class="tags">{skillsCyber.map(skill => <li>{skill}</li>)}</ul>
+        </div>
+        <div class="skill-category">
+          <h3>Développement (Intermédiaire)</h3>
+          <ul class="tags">{skillsDev.map(skill => <li>{skill}</li>)}</ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projets" class="section reveal">
+      <h2>Mes <span class="highlight">Projets</span></h2>
+      
+      <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-type">Projet École</div>
+          <h3>Infra Réseau & Penetration Testing</h3>
+          <p>Réalisation complète d'un réseau d'entreprise (PC, Serveur Linux, Routeur/Switch Cisco, VLAN, ACL, Wi-Fi Guest). Déploiement suivi d'une phase d'attaque ciblée (PenTest) pour auditer la sécurité et extraire des informations critiques.</p>
+          <div class="project-stack">
+            <span>Cisco</span><span>Linux</span><span>VLAN</span><span>PenTest</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-type personal">Projet Personnel</div>
+          <h3>IoT : Station M5 Stick Plus 2</h3>
+          <p>Détournement d'un module M5 Stick Plus 2 pour créer un système de monitoring environnemental. Capteurs de température ambiante et d'humidité du sol pour la gestion automatisée de l'arrosage et du climat d'une plante.</p>
+          <div class="project-stack">
+            <span>IoT</span><span>C / C++</span><span>Hardware</span>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer reveal">
+    <p>© 2026 Malo - Fait avec rigueur.<br/> <a href="mailto:lomaneveu@laposte.net">Me contacter par email</a></p>
   </footer>
 
+  <script src="/scripts/theme-toggle.js" defer is:inline={false}></script>
+  
   <script is:inline>
-    const textElement = document.getElementById('typewriter');
-    const phrases = ["Futur Expert Cybersécurité", "PenTtester Junior", "Passionné Linux & Réseaux"];
-    let phraseIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-
-    function type() {
-      const currentPhrase = phrases[phraseIndex];
+    document.addEventListener('DOMContentLoaded', () => {
+      const textElement = document.getElementById('typewriter');
+      if (!textElement) return;
       
-      if (isDeleting) {
-        textElement.textContent = currentPhrase.substring(0, charIndex - 1);
-        charIndex--;
-      } else {
-        textElement.textContent = currentPhrase.substring(0, charIndex + 1);
-        charIndex++;
+      const phrases = [
+        "Passionné par l'offensive security et l'administration système.",
+        "En dehors du terminal : Passionné de Cinéma & IA.",
+        "Série préférée : Hello friend. Hello friend? That's lame."
+      ];
+      
+      let phraseIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+
+      function type() {
+        const currentPhrase = phrases[phraseIndex];
+        
+        if (isDeleting) {
+          textElement.textContent = currentPhrase.substring(0, charIndex - 1);
+          charIndex--;
+        } else {
+          textElement.textContent = currentPhrase.substring(0, charIndex + 1);
+          charIndex++;
+        }
+
+        let typeSpeed = isDeleting ? 30 : 60; // Vitesse de frappe
+
+        if (!isDeleting && charIndex === currentPhrase.length) {
+          isDeleting = true;
+          typeSpeed = 2500; // Pause à la fin de la phrase
+        } else if (isDeleting && charIndex === 0) {
+          isDeleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+          typeSpeed = 500; // Pause avant la prochaine phrase
+        }
+
+        setTimeout(type, typeSpeed);
       }
 
-      let typeSpeed = isDeleting ? 50 : 100;
-
-      if (!isDeleting && charIndex === currentPhrase.length) {
-        isDeleting = true;
-        typeSpeed = 2000; // Pause à la fin du mot
-      } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        phraseIndex = (phraseIndex + 1) % phrases.length;
-        typeSpeed = 500;
-      }
-
-      setTimeout(type, typeSpeed);
-    }
-
-    document.addEventListener('DOMContentLoaded', type);
+      // Lancer l'animation
+      setTimeout(type, 500);
+    });
   </script>
 
 </MainLayout>
 
 <style>
-  /* --- STYLES ESSENTIELS --- */
-  .navbar { position: fixed; top: 0; width: 100%; padding: 1rem 5%; background-color: var(--nav-bg); backdrop-filter: blur(10px); z-index: 100; }
+  /* --- STYLES D'ORIGINE CONSERVÉS --- */
+  .navbar { position: fixed; top: 0; width: 100%; padding: 1rem 5%; background-color: var(--nav-bg); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid rgba(0,0,0,0.05); }
+  :root.dark .navbar { border-bottom: 1px solid rgba(255,255,255,0.05); }
   nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
-  .nav-links { list-style: none; display: flex; gap: 1.5rem; }
-  .nav-links a { color: var(--text-color); text-decoration: none; }
+  .logo { font-weight: bold; font-size: 1.2rem; display: flex; align-items: center; gap: 0.5rem; }
+  .cyber-badge { font-size: 0.7rem; background: var(--accent-color); color: white; padding: 0.2rem 0.5rem; border-radius: 4px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+  .nav-links { list-style: none; display: flex; gap: 1.5rem; align-items: center; }
+  .nav-links a { color: var(--text-color); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--accent-color); }
   
-  main { width: 100%; }
-  .section { max-width: 1000px; margin: 0 auto; padding: 5rem 5%; }
+  button { background: none; border: none; font-size: 1.2rem; cursor: pointer; color: var(--text-color); display: flex; align-items: center; justify-content: center; }
+  .theme-icon { width: 1.2rem; height: 1.2rem; transition: transform 0.3s ease; }
+  button:hover .theme-icon { transform: rotate(30deg); color: var(--accent-color); }
 
-  /* HERO & VIDEO FULLSCREEN */
+  /* LE MAIN GARDE SA LARGEUR MAXIMALE COMME AVANT */
+  main { max-width: 1000px; margin: 0 auto; padding: 0 5%; }
+  
+  .section { padding: 5rem 0; border-bottom: 1px solid rgba(0,0,0,0.1); }
+  :root.dark .section { border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .section:last-of-type { border-bottom: none; }
+
+  h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.1; margin-bottom: 1rem; }
+  h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+  .highlight { color: var(--accent-color); }
+  .subtitle { font-size: 1.1rem; opacity: 0.8; margin-bottom: 2rem; font-family: monospace; }
+  
+  /* --- STYLES DE LA HERO (AJUSTÉS POUR LE PLEIN ECRAN ET LE TEXTE BLANC) --- */
   .hero { 
-    height: 100vh; 
+    min-height: 100vh; 
     display: flex; 
-    align-items: center; 
+    flex-direction: column; 
     justify-content: center; 
-    text-align: center;
-    position: relative;
+    align-items: flex-start;
+    width: 100%; /* Prend toute la largeur */
+    padding: 0 5%; /* Aligne avec le reste du site */
   }
   
-  .video-wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-  }
-  .bg-video { width: 100%; height: 100%; object-fit: cover; }
-  .video-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6); /* Filtre pour voir le texte */
-    z-index: 2;
-  }
-
-  .hero-content {
-    z-index: 10; /* Assure que le texte est AU-DESSUS de la vidéo */
-    color: white;
-  }
-
-  h1 { font-size: 4rem; margin-bottom: 1rem; color: white; }
-  .highlight { color: #2563eb; }
+  /* On force le texte de la zone hero en blanc */
+  .hero-content { color: #ffffff; }
+  .hero-content h1 { color: #ffffff; }
+  .hero-content .social-badge { color: #ffffff; border: 1px solid rgba(255,255,255,0.2); }
+  .hero-content .social-badge:hover { background: rgba(255,255,255,0.1); }
   
-  /* Effet curseur pour la machine à écrire */
-  .typewriter::after {
+  .hero-subtitle { font-size: 1.3rem; margin-bottom: 2rem; max-width: 600px; color: rgba(255, 255, 255, 0.9); }
+  
+  /* Curseur Machine à écrire */
+  #typewriter::after {
     content: "|";
     animation: blink 0.7s infinite;
   }
-  @keyframes blink { 50% { opacity: 0; } }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  /* Hauteur fixe pour éviter que la page saute quand la phrase est vide */
+  .typewriter-container { min-height: 3rem; }
 
-  .hero-subtitle { font-size: 1.5rem; margin-bottom: 2rem; color: rgba(255,255,255,0.9); }
-  .hero-actions { display: flex; gap: 1rem; justify-content: center; }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .cta-button, .secondary-button { padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: bold; text-decoration: none; transition: transform 0.2s; }
+  .cta-button { background-color: var(--accent-color); color: white; }
   
-  .cta-button { background: #2563eb; color: white; padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; }
-  .secondary-button { border: 2px solid white; color: white; padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; }
+  /* Bouton secondaire forcé en blanc */
+  .secondary-button { background-color: transparent; border: 2px solid var(--accent-color); color: #ffffff; }
+  .cta-button:hover, .secondary-button:hover { transform: translateY(-2px); }
 
-  .social-links { display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; }
-  .social-badge { background: rgba(255,255,255,0.1); padding: 0.5rem 1rem; border-radius: 5px; color: white; text-decoration: none; }
+  /* --- RESTE DU CSS ORIGINAL --- */
+  .bio-card, .badge-card, .project-card, .social-badge {
+    background: var(--card-bg);
+    border: 1px solid #cbd5e1;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.05);
+  }
+  :root.dark .bio-card, :root.dark .badge-card, :root.dark .project-card, :root.dark .social-badge {
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: none;
+  }
+
+  .social-links { display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap; }
+  .social-badge { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none; color: var(--text-color); font-size: 0.9rem; font-weight: 500; transition: all 0.2s ease; }
+  .social-badge:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+  .social-badge.root-me:hover { border-color: #ef4444; color: #ef4444; }
+  .social-badge.discord:hover { border-color: #5865F2; color: #5865F2; }
+  .social-badge.disabled { opacity: 0.5; cursor: not-allowed; border-style: dashed; }
+  .social-badge.disabled:hover { transform: none; box-shadow: none; }
+  .icon { width: 1.2rem; height: 1.2rem; }
+
+  .bio-card { padding: 2rem; border-radius: 12px; margin-bottom: 3rem; line-height: 1.8; }
+  .certif-title { margin-top: 3rem; font-size: 1.5rem; margin-bottom: 1.5rem; }
+  .badges-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+  .badge-card { padding: 1.5rem; border-radius: 12px; text-align: center; transition: transform 0.3s ease; }
+  .badge-card:hover { transform: translateY(-5px); }
+  .badge-card img { width: 100px; height: 100px; object-fit: contain; margin-bottom: 1rem; }
+  .badge-card p { font-weight: 500; font-size: 0.9rem; }
+
+  .skills-grid { display: grid; gap: 2.5rem; }
+  .skill-category h3 { margin-bottom: 1rem; font-size: 1.2rem; display: inline-block; padding-bottom: 0.3rem; border-bottom: 2px solid var(--accent-color); }
+  .tags { list-style: none; display: flex; flex-wrap: wrap; gap: 0.8rem; }
+  .tags li { background: var(--card-bg); padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.9rem; font-weight: 500; border: 1px solid #cbd5e1; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+  :root.dark .tags li { border: 1px solid rgba(255,255,255,0.1); box-shadow: none; }
+
+  .projects-grid { display: grid; gap: 2rem; }
+  .project-card { padding: 2rem; border-radius: 12px; transition: transform 0.3s ease; }
+  .project-card:hover { transform: translateY(-5px); }
+  .project-type { display: inline-block; font-size: 0.8rem; font-family: monospace; background: rgba(37, 99, 235, 0.1); color: var(--accent-color); padding: 0.2rem 0.6rem; border-radius: 4px; margin-bottom: 1rem; }
+  .project-type.personal { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+  .project-card h3 { margin-bottom: 1rem; font-size: 1.4rem; }
+  .project-card p { opacity: 0.9; margin-bottom: 1.5rem; }
+  .project-stack { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .project-stack span { font-size: 0.8rem; background: var(--bg-color); padding: 0.3rem 0.6rem; border-radius: 4px; border: 1px solid rgba(0,0,0,0.1); }
+  :root.dark .project-stack span { border: 1px solid rgba(255,255,255,0.1); }
+
+  .footer { text-align: center; padding: 3rem 0; opacity: 0.7; }
+  .footer a { color: var(--accent-color); text-decoration: none; font-weight: bold; }
+
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* --- STYLES DU FOND VIDEO --- */
+  .video-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
+  .bg-video { width: 100%; height: 100%; object-fit: cover; }
   
-  .highlight { color: #60a5fa; }
+  /* Filtre sombre PAR-DESSUS la vidéo pour assurer que le texte reste lisible */
+  .video-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(15, 23, 42, 0.75); 
+    z-index: 1;
+  }
 </style>
