@@ -32,8 +32,6 @@ body {
   color: var(--text-color);
   transition: background-color 0.3s ease, color 0.3s ease;
   line-height: 1.6;
-  
-  /* Ajouts pour forcer le fond à prendre toute la page */
   min-height: 100vh;
   display: flex;
   flex-direction: column;

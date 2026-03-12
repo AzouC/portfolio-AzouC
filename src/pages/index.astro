@@ -154,8 +154,11 @@ const skillsDev = ["HTML / CSS", "C / C++", "Python", "Bash"];
   .theme-icon { width: 1.2rem; height: 1.2rem; transition: transform 0.3s ease; }
   button:hover .theme-icon { transform: rotate(30deg); color: var(--accent-color); }
 
-  main { max-width: 1000px; margin: 0 auto; padding: 0 5%; }
-  .section { padding: 5rem 0; border-bottom: 1px solid rgba(0,0,0,0.1); }
+  /* ON LIBERE LE MAIN POUR LA VIDEO */
+  main { width: 100%; }
+
+  /* ON CADRE UNIQUEMENT LES SECTIONS CLASSIQUES */
+  .section { max-width: 1000px; margin: 0 auto; padding: 5rem 5%; border-bottom: 1px solid rgba(0,0,0,0.1); }
   :root.dark .section { border-bottom: 1px solid rgba(255,255,255,0.05); }
   .section:last-of-type { border-bottom: none; }
 
@@ -165,12 +168,16 @@ const skillsDev = ["HTML / CSS", "C / C++", "Python", "Bash"];
   .subtitle { font-size: 1.1rem; opacity: 0.8; margin-bottom: 2rem; font-family: monospace; }
   
   .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
-  .hero-subtitle { font-size: 1.3rem; opacity: 0.8; margin-bottom: 2rem; max-width: 600px; }
+  
+  /* STYLES DU TEXTE SUR LA VIDEO */
+  .hero-content { color: #ffffff; max-width: 1000px; margin: 0 auto; padding: 0 5%; width: 100%; }
+  .hero-content h1 { color: #ffffff; }
+  .hero-subtitle { color: rgba(255, 255, 255, 0.9); font-size: 1.3rem; margin-bottom: 2rem; max-width: 600px; }
   .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
   
   .cta-button, .secondary-button { padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: bold; text-decoration: none; transition: transform 0.2s; }
   .cta-button { background-color: var(--accent-color); color: white; }
-  .secondary-button { background-color: transparent; border: 2px solid var(--accent-color); color: var(--text-color); }
+  .secondary-button { background-color: transparent; border: 2px solid var(--accent-color); color: #ffffff; }
   .cta-button:hover, .secondary-button:hover { transform: translateY(-2px); }
 
   .bio-card, .badge-card, .project-card, .social-badge {
@@ -184,12 +191,12 @@ const skillsDev = ["HTML / CSS", "C / C++", "Python", "Bash"];
   }
 
   .social-links { display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap; }
-  .social-badge { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none; color: var(--text-color); font-size: 0.9rem; font-weight: 500; transition: all 0.2s ease; }
-  .social-badge:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+  .social-badge { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none; color: #ffffff; font-size: 0.9rem; font-weight: 500; transition: all 0.2s ease; border: 1px solid rgba(255,255,255,0.3); background: rgba(0,0,0,0.3); backdrop-filter: blur(5px);}
+  .social-badge:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3); background: rgba(0,0,0,0.5); }
   .social-badge.root-me:hover { border-color: #ef4444; color: #ef4444; }
   .social-badge.discord:hover { border-color: #5865F2; color: #5865F2; }
   .social-badge.disabled { opacity: 0.5; cursor: not-allowed; border-style: dashed; }
-  .social-badge.disabled:hover { transform: none; box-shadow: none; }
+  .social-badge.disabled:hover { transform: none; box-shadow: none; background: rgba(0,0,0,0.3); }
   .icon { width: 1.2rem; height: 1.2rem; }
 
   .bio-card { padding: 2rem; border-radius: 12px; margin-bottom: 3rem; line-height: 1.8; }
@@ -250,18 +257,13 @@ const skillsDev = ["HTML / CSS", "C / C++", "Python", "Bash"];
     height: 100%;
     object-fit: cover;
   }
- .video-overlay {
+  .video-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    /* Filtre clair par défaut pour que le texte foncé soit lisible */
-    background: rgba(248, 250, 252, 0.85); 
-  }
-  
-  /* Variante foncée quand le mode sombre est actif */
-  :root.dark .video-overlay {
-    background: rgba(15, 23, 42, 0.85); 
+    /* Filtre sombre constant pour garantir que le texte blanc soit lisible */
+    background: rgba(15, 23, 42, 0.75);
   }
 </style>
