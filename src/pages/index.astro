@@ -22,7 +22,7 @@ const skillsDev = ["HTML / CSS", "C / C++", "Python", "Bash"];
     </nav>
   </header>
 
-  <section id="accueil" class="hero relative overflow-hidden">
+  <section id="accueil" class="hero">
     <div class="video-wrapper">
       <video autoplay loop muted playsinline class="bg-video">
         <source src="/videos/cyber-bg.mp4" type="video/mp4" />
@@ -30,7 +30,7 @@ const skillsDev = ["HTML / CSS", "C / C++", "Python", "Bash"];
       <div class="video-overlay"></div>
     </div>
 
-    <div class="hero-content relative z-10 w-full">
+    <div class="hero-content">
       <h1>Étudiant en <span class="highlight">Cybersécurité & Réseaux</span></h1>
       
       <p class="hero-subtitle typewriter-container">
@@ -143,7 +143,6 @@ const skillsDev = ["HTML / CSS", "C / C++", "Python", "Bash"];
     (function initTypewriter() {
       const textElement = document.getElementById('typewriter');
       if (!textElement) {
-        // Si l'élément n'est pas encore là, on réessaie un peu plus tard
         setTimeout(initTypewriter, 100);
         return;
       }
@@ -169,21 +168,20 @@ const skillsDev = ["HTML / CSS", "C / C++", "Python", "Bash"];
           charIndex++;
         }
 
-        let typeSpeed = isDeleting ? 30 : 60; // Vitesse de frappe
+        let typeSpeed = isDeleting ? 30 : 60;
 
         if (!isDeleting && charIndex === currentPhrase.length) {
           isDeleting = true;
-          typeSpeed = 2500; // Pause à la fin de la phrase
+          typeSpeed = 2500;
         } else if (isDeleting && charIndex === 0) {
           isDeleting = false;
           phraseIndex = (phraseIndex + 1) % phrases.length;
-          typeSpeed = 500; // Pause avant la prochaine phrase
+          typeSpeed = 500;
         }
 
         setTimeout(type, typeSpeed);
       }
 
-      // Lancer l'animation
       setTimeout(type, 500);
     })();
   </script>
@@ -215,19 +213,30 @@ const skillsDev = ["HTML / CSS", "C / C++", "Python", "Bash"];
   .highlight { color: var(--accent-color); }
   .subtitle { font-size: 1.1rem; opacity: 0.8; margin-bottom: 2rem; font-family: monospace; }
   
-  /* --- STYLES DE LA HERO (CORRIGÉS POUR CENTRER) --- */
+  /* HERO - position relative pour que l'absolute du video-wrapper fonctionne */
   .hero { 
+    position: relative;
+    overflow: hidden;
     min-height: 100vh; 
     display: flex; 
     flex-direction: column; 
     justify-content: center; 
-    align-items: center; /* CENTRÉ AU LIEU DE FLEX-START */
-    text-align: center;  /* FORCE LE TEXTE AU CENTRE */
+    align-items: center;
+    text-align: center;
     width: 100%; 
     padding: 0 5%; 
   }
   
-  .hero-content { color: #ffffff; display: flex; flex-direction: column; align-items: center; }
+  /* CORRECTION PRINCIPALE : z-index sur hero-content pour passer au-dessus de la vidéo */
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .hero-content h1 { color: #ffffff; }
   .hero-content .social-badge { color: #ffffff; border: 1px solid rgba(255,255,255,0.2); }
   .hero-content .social-badge:hover { background: rgba(255,255,255,0.1); }
@@ -238,13 +247,12 @@ const skillsDev = ["HTML / CSS", "C / C++", "Python", "Bash"];
   @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
   .typewriter-container { min-height: 4rem; display: flex; justify-content: center; width: 100%; }
 
-  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; } /* CENTRÉ */
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
   .cta-button, .secondary-button { padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: bold; text-decoration: none; transition: transform 0.2s; }
   .cta-button { background-color: var(--accent-color); color: white; }
   .secondary-button { background-color: transparent; border: 2px solid var(--accent-color); color: #ffffff; }
   .cta-button:hover, .secondary-button:hover { transform: translateY(-2px); }
 
-  /* RESTE DU CSS ORIGINAL */
   .bio-card, .badge-card, .project-card, .social-badge {
     background: var(--card-bg);
     border: 1px solid #cbd5e1;
@@ -252,7 +260,7 @@ const skillsDev = ["HTML / CSS", "C / C++", "Python", "Bash"];
   }
   :root.dark .bio-card, :root.dark .badge-card, :root.dark .project-card, :root.dark .social-badge { border: 1px solid rgba(255,255,255,0.08); box-shadow: none; }
 
-  .social-links { display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap; justify-content: center; } /* CENTRÉ */
+  .social-links { display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap; justify-content: center; }
   .social-badge { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none; color: var(--text-color); font-size: 0.9rem; font-weight: 500; transition: all 0.2s ease; }
   .social-badge:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
   .social-badge.root-me:hover { border-color: #ef4444; color: #ef4444; }
@@ -292,6 +300,7 @@ const skillsDev = ["HTML / CSS", "C / C++", "Python", "Bash"];
   .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
+  /* Vidéo background */
   .video-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
   .bg-video { width: 100%; height: 100%; object-fit: cover; }
   .video-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.75); z-index: 1; }
